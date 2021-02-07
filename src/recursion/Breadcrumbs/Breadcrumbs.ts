@@ -1,37 +1,32 @@
-import { routes } from '../../utils'
+export const searchRoutes = (routes: any, path: string) => {
+  if (path.length === 0) return [];
 
+  const node = routes?.find((elem: any) => path.startsWith(elem.path));
 
-export const searchRoutes = (routes, path) => {
+  if (!node) {
+    return null;
+  }
 
-    if (path.length === 0) return [];
+  const currentPathLength = node.path.length;
+  const actualPath = path.slice(currentPathLength);
 
-    const node = routes.find((elem) => path.startsWith(elem.path));
+  const breadcrumbs: any = searchRoutes(node.routes, actualPath);
 
-    if (!node) {
-        return null;
-    }
+  if (!breadcrumbs) {
+    return null;
+  }
 
-    const currentPathLength = node.path.length;
-    const actualPath = path.slice(currentPathLength);
-
-
-
-    const breadcrumbs = searchRoutes(node.routes, actualPath);
-
-    console.log("breadcrumbs", breadcrumbs)
-    if (!breadcrumbs) {
-        return null;
-    }
-
-    return [
-        {
-            label: node.label,
-            path: node.path
-        },
-        ...breadcrumbs
-    ];
+  return [
+    {
+      label: node.label,
+      path: node.path,
+    },
+    ...breadcrumbs,
+  ];
 };
 
-// //todo: zwrócić inny kształt obiektu na koniec, w path mieć gotowy url
-
-console.log(searchRoutes(routes, "/about/consultations/details"));
+export const getLabel = (routes: any, path: string) => {
+  const currentRoutes = searchRoutes(routes, path);
+  const getOnlyRouteLabel = currentRoutes?.map((el: any) => el.label);
+  return getOnlyRouteLabel?.join('/');
+};

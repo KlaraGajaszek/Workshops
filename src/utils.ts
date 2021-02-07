@@ -1,4 +1,5 @@
-export const input = [1619,
+export const input = [
+  1619,
   1919,
   1441,
   1861,
@@ -68,8 +69,8 @@ export const input = [1619,
   1385,
   1964,
   1626,
-  1832
-745,
+  1832,
+  745,
   1702,
   1602,
   1471,
@@ -197,41 +198,42 @@ export const input = [1619,
   1823,
   1388,
   1548,
-  1879]
+  1879,
+];
 
 export const routes = [
   {
-    path: "/about",
-    label: "O mnie",
+    path: '/about',
+    label: 'O mnie',
     routes: [
       {
-        path: "/consultations",
-        label: "Konsultacje",
+        path: '/consultations',
+        label: 'Konsultacje',
         routes: [
           {
-            path: "/details",
-            label: "Details"
-          }
-        ]
+            path: '/details',
+            label: 'Details',
+          },
+        ],
       },
       {
-        path: "/collaboration",
-        label: "Współpraca"
-      }
-    ]
+        path: '/collaboration',
+        label: 'Współpraca',
+      },
+    ],
   },
   {
-    path: "/settings",
-    label: "Ustawienia",
+    path: '/settings',
+    label: 'Ustawienia',
     routes: [
       {
-        path: "/agreements",
-        label: "Zgody"
+        path: '/agreements',
+        label: 'Zgody',
       },
       {
-        path: "/data",
-        label: "Dane"
-      }
-    ]
-  }
+        path: '/data',
+        label: 'Dane',
+      },
+    ],
+  },
 ];
