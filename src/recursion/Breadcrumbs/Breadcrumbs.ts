@@ -1,6 +1,8 @@
-import { routes } from '../../utils';
+import { routes } from '../../utils'
+
 
 export const searchRoutes = (routes, path) => {
+
     if (path.length === 0) return [];
 
     const node = routes.find((elem) => path.startsWith(elem.path));
@@ -12,8 +14,11 @@ export const searchRoutes = (routes, path) => {
     const currentPathLength = node.path.length;
     const actualPath = path.slice(currentPathLength);
 
+
+
     const breadcrumbs = searchRoutes(node.routes, actualPath);
 
+    console.log("breadcrumbs", breadcrumbs)
     if (!breadcrumbs) {
         return null;
     }
@@ -21,12 +26,12 @@ export const searchRoutes = (routes, path) => {
     return [
         {
             label: node.label,
-            path: node.path,
+            path: node.path
         },
-        ...breadcrumbs,
+        ...breadcrumbs
     ];
 };
 
 // //todo: zwrócić inny kształt obiektu na koniec, w path mieć gotowy url
 
-console.log(searchRoutes(routes, '/about/consultations/details'));
+console.log(searchRoutes(routes, "/about/consultations/details"));

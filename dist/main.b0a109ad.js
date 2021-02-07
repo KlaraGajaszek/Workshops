@@ -185,6 +185,7 @@ var searchRoutes = function searchRoutes(routes, path) {
   var currentPathLength = node.path.length;
   var actualPath = path.slice(currentPathLength);
   var breadcrumbs = exports.searchRoutes(node.routes, actualPath);
+  console.log("breadcrumbs", breadcrumbs);
 
   if (!breadcrumbs) {
     return null;
@@ -197,7 +198,7 @@ var searchRoutes = function searchRoutes(routes, path) {
 };
 
 exports.searchRoutes = searchRoutes;
-console.log(exports.searchRoutes(utils_1.routes, '/about/consultations/details'));
+console.log(exports.searchRoutes(utils_1.routes, "/about/consultations/details"));
 },{"../../utils":"src/utils.ts"}],"src/recursion/Breadcrumbs/description.ts":[function(require,module,exports) {
 "use strict";
 
@@ -210,10 +211,10 @@ exports.routes = [{
   label: 'O mnie',
   routes: [{
     path: '/consultations',
-    label: 'Konsultacje'
+    label: "Konsultacje"
   }, {
     path: '/collaboration',
-    label: 'Współpraca'
+    label: "Współpraca"
   }]
 }, {
   path: '/settings',
@@ -306,8 +307,8 @@ var Day1Part1 = Day1_1.sum2020(utils_1.input, 2020);
 var Day1Part2 = Day1_1.sum2020Part2(utils_1.input, 2020);
 var Day1Part3 = Day1_1.sum2020Part3();
 var Day1Part4 = Day1_1.getThreeValues();
-var SearchRoutes = searchRoutes(description_1.routes, '/about/consultations/details');
-console.log(SearchRoutes, 'SearchRoutes');
+var SearchRoutes = searchRoutes(description_1.routes, "/about/consultations/details");
+console.log(SearchRoutes, "SearchRoutes");
 window.onload = description_1.routes;
 },{"./recursion/Breadcrumbs/Breadcrumbs":"src/recursion/Breadcrumbs/Breadcrumbs.ts","./recursion/Breadcrumbs/description":"src/recursion/Breadcrumbs/description.ts","./AdventOfCode/Day1":"src/AdventOfCode/Day1.ts","./utils":"src/utils.ts"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -337,7 +338,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "17923" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1233" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
